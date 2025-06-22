@@ -5,7 +5,9 @@ on:
     branches: 
       - main 
       - feat/lkn
+      - nkn
       # - "*" # all 
+  workflow_dispatch:
 
 jobs:
   test:
