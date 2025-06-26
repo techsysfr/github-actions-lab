@@ -4,8 +4,6 @@ on:
   push:  # Automatique sur chaque push
     branches:
       - main
-      - feat/lkn
-      - nkn
   workflow_dispatch:  # Manuel depuis l'onglet Actions
 
 jobs:
