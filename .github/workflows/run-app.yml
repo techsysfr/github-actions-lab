@@ -3,7 +3,7 @@ on:
     pull_request:
         branches: [main]
     push:
-        branches: [main]
+        branches: [main, feat/gh-action-create ]
 
 jobs:
     build-app:
@@ -11,3 +11,13 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v4
+            - name: linter
+              uses: astral-sh/ruff-action@v3
+            - name: run main
+              run: python3 maint.py >> $GITHUB_OUTPUT
+    print-output:
+        needs: build-app
+        runs-on: ubuntu-latest
+        steps:
+            - name: print output
+              run: echo $GITHUB_OUTPUT
