@@ -67,7 +67,8 @@ jobs:
     
     # Affichez le variable global 
     - name: Print global variable
-      run: echo "Global variable: $GLOBAL_VAR"
+      run: |
+        echo "Global variable: $GLOBAL_VAR"
 
     # Ajoutez et affichez le variable local
     - name: Set and print local variable
@@ -136,4 +137,5 @@ Modifiez ensuite le fichier `test-ci.yml` et ajoutez une étape supplémentaire 
 - name: Run Python script
   env:
     LOCAL_VAR: "This is a local variable"
-  run: python script.py
+  run: | 
+    python script.py
