@@ -83,7 +83,7 @@ jobs:
 
     - name: Run Python script
       run: |
-        python script.py
+        python main.py
 ```
 
 ### Étape 5 : Ajouter les modifications
