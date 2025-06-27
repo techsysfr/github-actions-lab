@@ -1,26 +1,45 @@
-name: Run main.py on push and manually
+# Changez le nom de workflow
+name: CI with Environment Variables Arnaud
 
 on:
-  push:  # Automatique sur chaque push
+  push:
     branches:
-      - main
-  workflow_dispatch:  # Manuel depuis l'onglet Actions
+      - [branch-name] # Remplacez [branch-name] par le nom de votre branche
+  workflow_dispatch:
+
+# Ajoutez le variable global
+env:
+  GLOBAL_VAR: "Arnaud global variable"
 
 jobs:
-  run-script:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    
+    # Affichez le variable global 
+    - name: Print global variable
+      run: |
+        echo "Global variable: $GLOBAL_VAR"
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+    # Ajoutez et affichez le variable local
+    - name: Set and print local variable
+      env:
+        LOCAL_VAR: "Arnaud local variable"
+      run: |
+        echo "Local variable: $LOCAL_VAR"
+    # Affichez le nom de branch
+    - name: Print branch name
+      run: |
+        echo "Branch name: $GITHUB_REF_NAME"
 
-      - name: Run main.py
-        run: python main.py
+    - name: Run Python script
+      run: |
+        python main.py
