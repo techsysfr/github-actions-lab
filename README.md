@@ -177,3 +177,5 @@ L'objectif de ce lab est de vous familiariser avec les étapes pour utiliser Git
 - Le commit et le push des modifications.
 - La visualisation des résultats dans GitHub Actions.
 - Le déclenchement manuel d'un job.
+
+[LAB: GitHub-Actions-et-Variables-d'Environnement](./LAB/)
