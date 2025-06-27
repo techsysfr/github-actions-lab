@@ -3,7 +3,7 @@ name: Run main.py on push and manually
 on:
   push:  # Automatique sur chaque push
     branches:
-      - main
+      - feat/*
   workflow_dispatch:  # Manuel depuis l'onglet Actions
 
 jobs:
