@@ -43,3 +43,9 @@ jobs:
     - name: Run Python script
       run: |
         python main.py
+    
+    - name: Run Python script
+      env:
+        LOCAL_VAR: "variable local arnaud"
+      run: | 
+        python script.py
