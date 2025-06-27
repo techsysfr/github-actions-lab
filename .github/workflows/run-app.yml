@@ -12,4 +12,4 @@ jobs:
             - name: checkout
               uses: actions/checkout@v4
             - name: run main
-              run: python3 maint.py
+              run: python3 main.py
