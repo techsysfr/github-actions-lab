@@ -4,7 +4,7 @@ name: CI with Environment Variables Arnaud
 on:
   push:
     branches:
-      - [branch-name] # Remplacez [branch-name] par le nom de votre branche
+      - [arnaud] # Remplacez [branch-name] par le nom de votre branche
   workflow_dispatch:
 
 # Ajoutez le variable global
