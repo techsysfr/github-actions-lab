@@ -1,5 +1,5 @@
 # Changez le nom de workflow
-name: CI with Environment Variables Arnaud
+name: CI with Environment Variables
 
 on:
   push:
