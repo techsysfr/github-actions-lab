@@ -111,3 +111,29 @@ Allez dans l'onglet `Actions` de votre dépôt GitHub pour voir le résultat de 
 
 ### Étape 9 : Lancer le job manuellement
 Pour lancer le job manuellement, allez dans l'onglet `Actions` de votre dépôt GitHub, sélectionnez le workflow `CI with Environment Variables`, et cliquez sur le bouton `Run workflow`. Vous pouvez choisir la branche `[branch-name]` et lancer le workflow.
+
+## 👉 Allez plus loin : Utiliser les variables dans `script.py`
+
+Créez un fichier `script.py` à la racine de votre dépôt contenant :
+
+```python
+import os
+
+# Accès à la variable globale
+global_var = os.environ.get("GLOBAL_VAR")
+
+# Accès à la variable locale
+local_var = os.environ.get("LOCAL_VAR")
+
+# Affichage
+print(f"Global variable from env: {global_var}")
+print(f"Local variable from env: {local_var}")
+```
+
+Modifiez ensuite le fichier `test-ci.yml` et ajoutez une étape supplémentaire pour exécuter `script.py` :
+
+```yaml
+- name: Run Python script
+  env:
+    LOCAL_VAR: "This is a local variable"
+  run: python script.py
