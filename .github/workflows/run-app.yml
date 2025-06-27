@@ -4,12 +4,25 @@ on:
         branches: [main]
     push:
         branches: [main, feat/gh-action-create ]
-
+env:
+    GLOBAL_VAR: "GLOBAL_VAR"
 jobs:
     build-app:
         runs-on: ubuntu-latest
         steps:
             - name: checkout
               uses: actions/checkout@v4
+            - name: print global_var
+              run: |
+                echo "print global var : $GLOBAL_VAR"
+            - name: set local var
+              env:
+                LOCAL_VAR: "LOCAL_VAR"
+              run: |
+                echo "LOCAL_VAR=$LOCAL_VAR"
+            - name: get current branch
+              shell: bash
+              run: |
+                echo "braanch name: $GITHUB_REF_NAME"
             - name: run main
               run: python3 main.py
